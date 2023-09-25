@@ -2,6 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import HomeContainer from "./containers/HomeContainer";
 import ProductsContainer from "./containers/ProductsContainer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

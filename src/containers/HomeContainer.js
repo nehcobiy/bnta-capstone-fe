@@ -1,5 +1,13 @@
+import HeroImage from "../components/HeroImage";
+
 const HomeContainer = () => {
-  return <h1>Home</h1>;
-};
+  return (
+    <>
+  
+      <div>
+      <HeroImage />
+      </div>
+    </>
+)};
 
 export default HomeContainer;
