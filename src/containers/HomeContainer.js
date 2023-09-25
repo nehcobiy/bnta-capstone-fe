@@ -5,6 +5,7 @@ const HomeContainer = () => {
 
   const [products, setProducts] = useState([]);
 
+  // Fetching all products below
   const fetchProductImages = async () => {
     const response = await fetch("http://localhost:8080/products");
     const data = await response.json()
