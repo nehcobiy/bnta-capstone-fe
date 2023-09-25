@@ -1,4 +1,5 @@
 import HeroImage from "../components/HeroImage";
+import Footer from "../components/Footer";
 
 const HomeContainer = () => {
   return (
@@ -6,6 +7,7 @@ const HomeContainer = () => {
   
       <div>
       <HeroImage />
+      <Footer />
       </div>
     </>
 )};
