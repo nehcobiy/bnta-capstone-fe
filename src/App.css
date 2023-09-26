@@ -1,6 +1,52 @@
 .hero-image {
+  max-height: 100%; /* Ensure the image doesn't exceed the container */
+  max-width: 100%; /* Ensure the image doesn't exceed the container */
   position: relative;
   object-fit: cover;
+}
+
+.carousel-image-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Set the height to fill the viewport */
+}
+
+.carousel-image1 {
+  margin-left: 100px; /* Adjust the value as needed */
+}
+
+.carousel-image2 {
+  margin: 30px; /* Adjust the value as needed */
+}
+
+.carousel-image3 {
+  margin: 30px; /* Adjust the value as needed */
+}
+
+.carousel-image4 {
+  margin: 30px; /* Adjust the value as needed */
+}
+
+.carousel-image5 {
+  margin: 60px; /* Adjust the value as needed */
+}
+
+.shop-now-button {
+  position: absolute;
+  bottom: 250px; /* distance from the bottom as needed */
+  left: 400px;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  padding: 40px 100px;
+  cursor: pointer;
+  font-size: 24px
+}
+
+
+.shop-now-button:hover {
+  background-color: #0056b3; /* Hover background color */
 }
 
 
