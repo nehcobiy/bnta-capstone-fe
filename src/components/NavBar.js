@@ -2,12 +2,12 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { BiHomeAlt2 } from "react-icons/bi";
 import { GoPerson } from "react-icons/go";
-import { BsCart } from "react-icons/bs";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import SignIn from "./SignIn";
+import Basket from "./Basket";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -24,34 +24,38 @@ const NavBar = () => {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="/">
-          <BiHomeAlt2 />
+          <h1>Bamazon</h1>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <h2>Bamazon</h2>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/products/books">Books</NavDropdown.Item>
-              <NavDropdown.Item href="/products/electronics">
+              <NavDropdown.Item as={Link} to="/products/books">
+                Books
+              </NavDropdown.Item>
+
+              <NavDropdown.Item as={Link} to="/products/electronics">
                 Electronics
               </NavDropdown.Item>
-              <NavDropdown.Item href="/products/homeware">
+              <NavDropdown.Item as={Link} to="/products/homeware">
                 Homeware
               </NavDropdown.Item>
-              <NavDropdown.Item href="/products/media">Media</NavDropdown.Item>
-              <NavDropdown.Item href="/products/toys">Toys</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/products/media">
+                Media
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/products/toys">
+                Toys
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <button onClick={handleSignInClick}>
+        <Button variant="light" size="lg">
           <GoPerson />
-        </button>
-        <button>
-          <BsCart />
-        </button>
+        </Button>
+        <Basket />
       </Container>
-     
+
       {/* React Bootstrap Modal */}
       <Modal show={showSignIn} onHide={handleCloseModal}>
         <Modal.Header closeButton>
@@ -66,7 +70,6 @@ const NavBar = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-
     </Navbar>
   );
 };

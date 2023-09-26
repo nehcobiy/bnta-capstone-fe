@@ -14,11 +14,11 @@ const ProductsContainer = () => {
       .then((response) => {
         setProductsByCategory(response);
       });
-  }, []);
+  }, [category]);
 
   return (
     <>
-      <h2>Products</h2>
+      <h2>{category[0].toUpperCase() + category.slice(1)}</h2>
       <ProductList productsByCategory={productsByCategory} />
     </>
   );

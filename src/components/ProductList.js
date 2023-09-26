@@ -5,11 +5,7 @@ const ProductList = ({ productsByCategory }) => {
     return <Product key={product.id} product={product} />;
   });
 
-  return (
-    <>
-      <section>{productComponents}</section>
-    </>
-  );
+  return <>{productComponents}</>;
 };
 
 export default ProductList;
