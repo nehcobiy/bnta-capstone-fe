@@ -32,21 +32,13 @@
   margin: 60px; /* Adjust the value as needed */
 }
 
-.shop-now-button {
-  position: absolute;
-  bottom: 250px; /* distance from the bottom as needed */
-  left: 400px;
-  background-color: #007bff; /* Button background color */
-  color: #fff; /* Button text color */
-  border: none;
-  padding: 40px 100px;
-  cursor: pointer;
-  font-size: 24px
-}
-
-
-.shop-now-button:hover {
-  background-color: #0056b3; /* Hover background color */
+.popular-heading {
+  color: black;
+  font-size: 70px;
+  text-align: center;
+  margin-top: 120px;
+  margin-left: 50px;
+  margin-bottom: 8px;
 }
 
 

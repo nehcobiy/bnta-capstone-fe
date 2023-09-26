@@ -2,6 +2,8 @@ import Carousel from 'react-bootstrap/Carousel';
 
 const HeroImage =  () => {
     return (
+        <>
+        <h1 class="popular-heading"> Popular Products</h1>
         <Carousel fade interval={3000}>
             <Carousel.Item>
                 <div className="carousel-image-container">
@@ -13,7 +15,6 @@ const HeroImage =  () => {
                     </div>
                 </div>
                 <Carousel.Caption>
-                    <button className="shop-now-button">SHOP NOW</button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -26,7 +27,6 @@ const HeroImage =  () => {
                     </div>
                 </div>
                 <Carousel.Caption>
-                    <button className="shop-now-button">SHOP NOW</button>
                 </Carousel.Caption> 
             </Carousel.Item>
             <Carousel.Item>
@@ -39,7 +39,6 @@ const HeroImage =  () => {
                     </div>
                 </div>
                 <Carousel.Caption>
-                    <button className="shop-now-button">SHOP NOW</button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -52,7 +51,6 @@ const HeroImage =  () => {
                     </div>
                 </div>
                 <Carousel.Caption>
-                    <button className="shop-now-button">SHOP NOW</button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -65,11 +63,11 @@ const HeroImage =  () => {
                     </div>
                 </div>
                 <Carousel.Caption>
-                    <button className="shop-now-button">SHOP NOW</button>
                 </Carousel.Caption>
 
             </Carousel.Item>
         </Carousel>
+        </>
     );
 }
 export default HeroImage;
