@@ -118,3 +118,25 @@ body {
       margin: 0 5px;
   }
 }
+
+/* Add styles for the h1 element */
+h1 {
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold; /* You can adjust font weight if necessary */
+  margin-bottom: 20px; /* Add some spacing below the heading */
+}
+
+/* Style the container for the product list */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create 3 columns with equal width */
+  gap: 20px; /* Add some spacing between products */
+}
+
+/* Style each product item within the product list */
+.product-list .product {
+  /* You can add specific styles for each product card here */
+  border: 1px solid #ccc; /* Example border style */
+  padding: 20px; /* Example padding for each product card */
+  text-align: center; /* Center-align the content */
+}
