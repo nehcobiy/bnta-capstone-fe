@@ -50,14 +50,12 @@ const Product = ({ product }) => {
       <Card.Img variant="top" src={product.image} />
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
-        <Card.Text tag="div">
-          <Accordion>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>More information...</Accordion.Header>
-              <Accordion.Body>{product.description}</Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </Card.Text>
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>More information...</Accordion.Header>
+            <Accordion.Body>{product.description}</Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
         <Card.Text tag="div">£{product.price / 100}</Card.Text>
         {/* QUANTITY */}
         <p>Qty:</p>
