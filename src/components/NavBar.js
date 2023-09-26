@@ -51,6 +51,8 @@ const NavBar = () => {
           <BsCart />
         </button>
       </Container>
+     
+     {/* SignIn Modal */}
       {/* React Bootstrap Modal */}
       <Modal show={showSignIn} onHide={handleCloseModal}>
         <Modal.Header closeButton>
