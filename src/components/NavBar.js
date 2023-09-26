@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import SignIn from "./SignIn";
 import Basket from "./Basket";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -30,15 +31,22 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/products/books">Books</NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/products/books">Books</Link>
+              </NavDropdown.Item>
+
               <NavDropdown.Item href="/products/electronics">
-                Electronics
+                <Link to="/products/electronics">Electronics</Link>
               </NavDropdown.Item>
               <NavDropdown.Item href="/products/homeware">
-                Homeware
+                <Link to="/products/homeware">Homeware</Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="/products/media">Media</NavDropdown.Item>
-              <NavDropdown.Item href="/products/toys">Toys</NavDropdown.Item>
+              <NavDropdown.Item href="/products/media">
+                <Link to="/products/media">Media</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/products/toys">
+                <Link to="/products/toys">Toys</Link>
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

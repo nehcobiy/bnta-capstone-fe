@@ -12,8 +12,6 @@ const Product = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const { basket, setBasket } = useContext(BasketContext);
 
-  console.log(basket);
-
   const handlePlus = () => {
     setQuantity(quantity + 1);
   };
@@ -25,23 +23,26 @@ const Product = ({ product }) => {
   };
 
   const addToBasket = () => {
-    if (product.length === 0) {
+    let itemInBasket = false;
+
+    basket.forEach((basketItem) => {
+      if (basketItem.item === product) {
+        itemInBasket = true;
+      }
+    });
+
+    if (basket.length === 0) {
       setBasket([{ item: product, quantity: quantity }]);
-    } else {
+    } else if (itemInBasket === true) {
       basket.forEach((basketItem) => {
         if (basketItem.item.id === product.id) {
           basketItem.quantity += quantity;
           setBasket([...basket]);
         }
       });
+    } else if (itemInBasket === false) {
+      setBasket([...basket, { item: product, quantity: quantity }]);
     }
-    // if (basket.hasOwnProperty(product.id)) {
-    //   basket[product.id] += quantity;
-    //   setBasket({ ...basket });
-    // } else {
-    //   basket[product.id] = quantity;
-    //   setBasket({ ...basket });
-    // }
   };
 
   return (
@@ -49,7 +50,7 @@ const Product = ({ product }) => {
       <Card.Img variant="top" src={product.image} />
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
-        <Card.Text>
+        <Card.Text tag="div">
           <Accordion>
             <Accordion.Item eventKey="0">
               <Accordion.Header>More information...</Accordion.Header>
@@ -57,7 +58,7 @@ const Product = ({ product }) => {
             </Accordion.Item>
           </Accordion>
         </Card.Text>
-        <Card.Text>£{product.price / 100}</Card.Text>
+        <Card.Text tag="div">£{product.price / 100}</Card.Text>
         {/* QUANTITY */}
         <p>Qty:</p>
         <Button variant="light" size="sm" onClick={handlePlus}>
