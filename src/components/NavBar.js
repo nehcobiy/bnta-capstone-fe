@@ -5,8 +5,21 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { BiHomeAlt2 } from "react-icons/bi";
 import { GoPerson } from "react-icons/go";
 import { BsCart } from "react-icons/bs";
+import React, { useState } from 'react';
+import { Modal, Button } from "react-bootstrap";
+import SignIn from "./SignIn";
 
 const NavBar = () => {
+  const [showSignIn, setShowSignIn] = useState(false);
+
+  const handleSignInClick = () => {
+    setShowSignIn(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowSignIn(false);
+  };
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -31,13 +44,29 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <button>
+        <button onClick={handleSignInClick}>
           <GoPerson />
         </button>
         <button>
           <BsCart />
         </button>
       </Container>
+     
+      {/* React Bootstrap Modal */}
+      <Modal show={showSignIn} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sign In</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <SignIn handleClose={handleCloseModal} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
     </Navbar>
   );
 };
