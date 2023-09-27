@@ -2,6 +2,11 @@ import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import CardGroup from "react-bootstrap/CardGroup";
+
 import { BsCart } from "react-icons/bs";
 import { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -46,31 +51,48 @@ const Product = ({ product }) => {
   };
 
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={product.image} />
-      <Card.Body>
-        <Card.Title>{product.name}</Card.Title>
-        <Accordion>
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>More information...</Accordion.Header>
-            <Accordion.Body>{product.description}</Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-        <Card.Text tag="div">£{product.price / 100}</Card.Text>
-        {/* QUANTITY */}
-        <p>Qty:</p>
-        <Button variant="light" size="sm" onClick={handlePlus}>
-          <AiOutlinePlus />
-        </Button>
-        {quantity}
-        <Button variant="light" size="sm" onClick={handleMinus}>
-          <AiOutlineMinus />
-        </Button>
-        <Button variant="secondary" onClick={addToBasket}>
-          <BsCart />
-        </Button>
-      </Card.Body>
-    </Card>
+    <>
+      <Col className="d-flex py-3">
+        <Card style={{ width: "22rem" }}>
+          <Card.Img variant="top" src={product.image} />
+
+          <Card.Body>
+            <Card.Title>{product.name}</Card.Title>
+            <Card.Text tag="div">£{product.price / 100}</Card.Text>
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>More information...</Accordion.Header>
+                <Accordion.Body>{product.description}</Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+            {/* QUANTITY */}
+            <section style={{ display: "flex", marginTop: "20px" }}>
+              <p style={{ marginTop: "10px" }}>Qty:</p>
+              <Button
+                variant="light"
+                size="sm"
+                onClick={handlePlus}
+                style={{ marginLeft: "20px", marginRight: "20px" }}
+              >
+                <AiOutlinePlus />
+              </Button>
+              <p style={{ marginTop: "10px" }}>{quantity}</p>
+              <Button
+                variant="light"
+                size="sm"
+                onClick={handleMinus}
+                style={{ marginLeft: "20px", marginRight: "20px" }}
+              >
+                <AiOutlineMinus />
+              </Button>
+              <Button variant="secondary" onClick={addToBasket}>
+                <BsCart />
+              </Button>
+            </section>
+          </Card.Body>
+        </Card>
+      </Col>
+    </>
   );
 };
 

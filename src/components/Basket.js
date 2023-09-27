@@ -29,7 +29,7 @@ const Basket = () => {
         </Offcanvas.Header>
         <hr />
         <Offcanvas.Body>
-          {/* <BasketItemList /> */}
+          <BasketItemList />
           <Form>
             <Form.Label>Delivery: </Form.Label>
             <Form.Select defaultValue="Choose..." onChange={updateShipping}>
