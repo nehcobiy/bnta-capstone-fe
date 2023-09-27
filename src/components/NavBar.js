@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SignInContext } from "../contexts/SignInContext";
+import { UserContext } from "../contexts/UserContext";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -12,7 +12,7 @@ import Basket from "./Basket";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const { isSignedIn, setIsSignedIn } = useContext(SignInContext);
+  const { user, setUser } = useContext(UserContext);
   const [showSignIn, setShowSignIn] = useState(false);
 
   const handleSignInClick = () => {
@@ -55,7 +55,7 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <Button variant="light" size="lg">
+        <Button variant="light" size="lg" onClick={handleSignInClick}>
           <GoPerson />
         </Button>
         <Basket />
@@ -69,11 +69,6 @@ const NavBar = () => {
         <Modal.Body>
           <SignIn handleClose={handleCloseModal} />
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </Navbar>
   );

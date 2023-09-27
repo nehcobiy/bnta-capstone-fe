@@ -1,21 +1,24 @@
 import React from 'react';
+import { useContext } from 'react';
+import { UserContext } from "../contexts/UserContext";
 
 const SignIn = ({ handleClose }) => {
-   
+  const { user, setUser } = useContext(UserContext);
+  console.log(user);
   return (
     <div>
       <form action="/action_page.php">
-        <label for="rname">Username:</label><br/>
+        <label htmlFor="rname">Username:</label><br/>
         <input type="text" id="rname"/>
         {/* <input type="submit" value="Enter"/> */}
         <br/>
-        <label for="fborough">Password:</label><br/>
+        <label htmlFor="fborough">Password:</label><br/>
         <input type="text" id="fpassword" />
         {/* <input type="submit" value="Enter"/> */}
         <br/>
       </form>
       <br/>
-      <button onClick={handleClose}>Enter</button>
+      <button onClick={handleClose}>Sign In</button>
     </div>
   );
 };
