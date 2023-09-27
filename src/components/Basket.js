@@ -4,6 +4,7 @@ import { BsCart } from "react-icons/bs";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Form from "react-bootstrap/Form";
 import { BasketContext } from "../contexts/BasketContext";
+import BasketItemList from "./BasketItemList";
 
 const Basket = () => {
   const [show, setShow] = useState(false);
@@ -28,6 +29,7 @@ const Basket = () => {
         </Offcanvas.Header>
         <hr />
         <Offcanvas.Body>
+          {/* <BasketItemList /> */}
           <Form>
             <Form.Label>Delivery: </Form.Label>
             <Form.Select defaultValue="Choose..." onChange={updateShipping}>
