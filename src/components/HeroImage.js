@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 const HeroImage =  () => {
     return (
         <>
-        <h1 class="popular-heading"> Popular Products</h1>
+        <h1 className="popular-heading"> Popular Products</h1>
         <Carousel fade interval={3000}>
             <Carousel.Item>
                 <div className="carousel-image-container">

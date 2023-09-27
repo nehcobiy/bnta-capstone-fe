@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { SignInContext } from "../contexts/SignInContext";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,6 +12,7 @@ import Basket from "./Basket";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const { isSignedIn, setIsSignedIn } = useContext(SignInContext);
   const [showSignIn, setShowSignIn] = useState(false);
 
   const handleSignInClick = () => {
@@ -19,6 +22,8 @@ const NavBar = () => {
   const handleCloseModal = () => {
     setShowSignIn(false);
   };
+
+  console.log("showSignIn:", showSignIn);
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">

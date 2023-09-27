@@ -5,12 +5,15 @@ import ProductsContainer from "./containers/ProductsContainer";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+
+
 
 function App() {
   return (
+    
     <div className="App">
       <NavBar />
-
       <Routes>
         <Route path="/" element={<HomeContainer />} />
         <Route path="/products" element={<ProductsContainer />} />
