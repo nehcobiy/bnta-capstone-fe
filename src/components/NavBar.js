@@ -11,9 +11,11 @@ import SignIn from "./SignIn";
 import Basket from "./Basket";
 import { Link } from "react-router-dom";
 
+
 const NavBar = () => {
   const { user, setUser } = useContext(UserContext);
   const [showSignIn, setShowSignIn] = useState(false);
+
 
   const handleSignInClick = () => {
     setShowSignIn(true);
