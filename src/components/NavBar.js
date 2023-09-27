@@ -50,7 +50,7 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <Button variant="light" size="lg">
+        <Button variant="light" size="lg" onClick={handleSignInClick}>
           <GoPerson />
         </Button>
         <Basket />
