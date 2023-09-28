@@ -10,8 +10,6 @@ const BasketItem = ({ product }) => {
   const { basket, setBasket } = useContext(BasketContext);
 
   const handlePlus = () => {
-    console.log(basket);
-    console.log(product);
     const updatedBasket = basket.map((basketItem) => {
       if (basketItem.item.id == product.item.id) {
         basketItem.quantity += 1;
@@ -56,7 +54,12 @@ const BasketItem = ({ product }) => {
             <AiOutlinePlus />
           </Button>
           {product.quantity}
-          <Button variant="light" size="sm" onClick={handleMinus}>
+          <Button
+            variant="light"
+            size="sm"
+            onClick={handleMinus}
+            disabled={product.quantity === 1}
+          >
             <AiOutlineMinus />
           </Button>
           <Button variant="secondary" onClick={handleBin}>
