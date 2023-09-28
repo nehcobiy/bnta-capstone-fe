@@ -63,6 +63,16 @@ const BasketItem = ({ product }) => {
           <Card.Text>£{product.item.price / 100}</Card.Text>
           {/* Display item quantity and buttons to adjust it */}
           <p>Qty:</p>
+          <Button variant="light" size="sm" onClick={handlePlus}>
+            <AiOutlinePlus />
+          </Button>
+          {product.quantity}
+          <Button
+            variant="light"
+            size="sm"
+            onClick={handleMinus}
+            disabled={product.quantity === 1}
+          >
           <Button variant="light" size="sm" onClick={handleMinus}>
             <AiOutlineMinus />
           </Button>
