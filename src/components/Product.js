@@ -49,10 +49,13 @@ const Product = ({ product }) => {
 
   return (
     <>
-
       <Col className="d-flex py-3">
         <Card style={{ width: "22rem" }}>
-          <Card.Img className="product-image" variant="top" src={product.image} />
+          <Card.Img
+            className="product-image"
+            variant="top"
+            src={product.image}
+          />
 
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>
@@ -69,20 +72,21 @@ const Product = ({ product }) => {
               <Button
                 variant="light"
                 size="sm"
-                onClick={handlePlus}
-                style={{ marginLeft: "20px", marginRight: "20px" }}
-              >
-                <AiOutlinePlus />
-              </Button>
-              <p style={{ marginTop: "10px" }}>{quantity}</p>
-              <Button
-                variant="light"
-                size="sm"
                 onClick={handleMinus}
                 style={{ marginLeft: "20px", marginRight: "20px" }}
               >
                 <AiOutlineMinus />
               </Button>
+              <p style={{ marginTop: "10px" }}>{quantity}</p>
+              <Button
+                variant="light"
+                size="sm"
+                onClick={handlePlus}
+                style={{ marginLeft: "20px", marginRight: "20px" }}
+              >
+                <AiOutlinePlus />
+              </Button>
+
               <Button variant="secondary" onClick={addToBasket}>
                 <BsCart />
               </Button>

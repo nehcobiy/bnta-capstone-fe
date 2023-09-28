@@ -52,12 +52,12 @@ const BasketItem = ({ product }) => {
           <Card.Text>£{product.item.price / 100}</Card.Text>
           {/* QUANTITY */}
           <p>Qty:</p>
-          <Button variant="light" size="sm" onClick={handlePlus}>
-            <AiOutlinePlus />
-          </Button>
-          {product.quantity}
           <Button variant="light" size="sm" onClick={handleMinus}>
             <AiOutlineMinus />
+          </Button>
+          {product.quantity}
+          <Button variant="light" size="sm" onClick={handlePlus}>
+            <AiOutlinePlus />
           </Button>
           <Button variant="secondary" onClick={handleBin}>
             <RiDeleteBin6Line />
