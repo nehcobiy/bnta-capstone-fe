@@ -1,21 +1,48 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { BasketContext } from "../contexts/BasketContext";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 const BasketItem = ({ product }) => {
-  const [quantity, setQuantity] = useState(product.quantity);
+  // const [quantity, setQuantity] = useState(product.quantity);
+  const { basket, setBasket } = useContext(BasketContext);
 
   const handlePlus = () => {
-    setQuantity(quantity + 1);
+    // setQuantity(quantity + 1);
+    console.log(basket);
+    console.log(product);
+    const updatedBasket = basket.map((basketItem) => {
+      if (basketItem.item.id == product.item.id) {
+        basketItem.quantity += 1;
+      }
+      return basketItem;
+    });
+
+    setBasket(updatedBasket);
   };
 
   const handleMinus = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
+    let updatedBasket;
+    if (product.quantity > 1) {
+      updatedBasket = basket.map((basketItem) => {
+        if (basketItem.item.id == product.item.id) {
+          basketItem.quantity -= 1;
+        }
+        return basketItem;
+      });
     }
+    setBasket(updatedBasket);
+  };
+
+  const handleBin = () => {
+    const updatedBasket = basket.filter((basketItem) => {
+      return basketItem != product;
+    });
+
+    setBasket(updatedBasket);
   };
 
   return (
@@ -30,11 +57,11 @@ const BasketItem = ({ product }) => {
           <Button variant="light" size="sm" onClick={handlePlus}>
             <AiOutlinePlus />
           </Button>
-          {quantity}
+          {product.quantity}
           <Button variant="light" size="sm" onClick={handleMinus}>
             <AiOutlineMinus />
           </Button>
-          <Button variant="secondary">
+          <Button variant="secondary" onClick={handleBin}>
             <RiDeleteBin6Line />
           </Button>
         </Card.Body>

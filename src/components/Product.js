@@ -2,10 +2,7 @@ import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import CardGroup from "react-bootstrap/CardGroup";
 
 import { BsCart } from "react-icons/bs";
 import { useState } from "react";

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { BsCart } from "react-icons/bs";
 import Offcanvas from "react-bootstrap/Offcanvas";
@@ -10,10 +10,18 @@ const Basket = () => {
   const [show, setShow] = useState(false);
   const { basket, setBasket } = useContext(BasketContext);
   const [shipping, setShipping] = useState(0);
-  const [basketTotal, setBasketTotal] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    let total = 0;
+    basket.forEach((basketItem) => {
+      total += basketItem.item.price * basketItem.quantity;
+    });
+    setCartTotal(total);
+  }, [basket]);
 
   const updateShipping = (e) => {
     setShipping(e.target.value);
@@ -48,10 +56,9 @@ const Basket = () => {
             </Form.Select>
           </Form>
           <hr />
-          <p>Cart total: </p>
+          <p>Cart total: £{(cartTotal / 100).toFixed(2)}</p>
           <p>Shipping: £{(shipping / 100).toFixed(2)}</p>
-          <p>Subtotal: </p>
-          {/* Form */}
+          <p>Subtotal: £{(cartTotal / 100 + shipping / 100).toFixed(2)} </p>
         </Offcanvas.Body>
       </Offcanvas>
     </>

@@ -6,7 +6,7 @@ const BasketItemList = (item) => {
   const { basket, setBasket } = useContext(BasketContext);
 
   const basketItemComponents = basket.map((product) => {
-    return <BasketItem key={item.id} product={product} />;
+    return <BasketItem key={product.item.id} product={product} />;
   });
 
   return <>{basketItemComponents}</>;
