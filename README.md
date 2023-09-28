@@ -28,6 +28,19 @@ The project follows a modular structure with the following key components:
 - `Footer.js`: Footer section with contact and social media information.
 - `App.js`: Defines the main application structure and routing.
 
+   ### Class Diagram
+ 
+<img src="./class_diagram.png" alt="class diagram" width="80%"/> 
+
+
+### Component Diagram
+<img src="./component_diagram.png" alt="Component diagram" width="80%"/>
+
+### WireFrame
+<img src="./wireframe.png" alt="wireframe" width="80%"/> 
+-------------
+
+
 ## Technologies
 - `React`: JavaScript library for building user interfaces.
 - `React Router`: For client-side routing.
