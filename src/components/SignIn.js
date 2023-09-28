@@ -1,8 +1,13 @@
+// Importing necessary modules and contexts from external libraries
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 
+// The SignIn component handles user sign-in and displays user information
 const SignIn = () => {
+  // Accessing user-related context and functions
   const { user, setUser, signOut } = useContext(UserContext);
+
+  // State variables for email, password, and sign-in message
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signInMessage, setSignInMessage] = useState(""); // Initialize the sign-in message state
@@ -10,6 +15,7 @@ const SignIn = () => {
   let orders;
 
   if (user != null) {
+    // Map user's orders to a list of ordered products
     orders = user.orders.map((order) => {
       return (
         <li>
@@ -29,7 +35,7 @@ const SignIn = () => {
   }
 
   const handleSignIn = async () => {
-    // Send a POST request to your backend with email and password
+    // Send a POST request to backend with email and password
     try {
       const response = await fetch(
         "http://localhost:8080/customers/verification",
@@ -52,12 +58,12 @@ const SignIn = () => {
           setSignInMessage(`${data.email} is signed in`);
         } else {
           // Handle incorrect login details
-          // You can show an error message to the user
+          // Show an error message to the user
           setSignInMessage("Incorrect login details");
         }
       } else {
         // Handle other errors
-        // You can show an error message to the user
+        // Show an error message to the user
         setSignInMessage("Incorrect login details");
       }
     } catch (error) {
@@ -66,21 +72,20 @@ const SignIn = () => {
       setSignInMessage("Network error occurred");
     }
   };
-  // signin Modal
+  
   return (
     <>
       {user ? (
-        // User is signed in, display sign-out button
+        // User is signed in, display sign-out button and user details
         <div>
           <p>{`Signed in as: ${user.email}`}</p>
           <hr />
           <h4>Orders:</h4>
           <ul>{orders}</ul>
-
           <button onClick={signOut}>Sign Out</button>
         </div>
       ) : (
-        // User is not signed in, display sign-in modal
+        // User is not signed in, display sign-in form and message
         <div>
           <label htmlFor="email">Email:</label>
           <br />
@@ -108,4 +113,5 @@ const SignIn = () => {
   );
 };
 
+// Exporting the SignIn component
 export default SignIn;

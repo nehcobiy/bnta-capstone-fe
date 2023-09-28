@@ -1,7 +1,10 @@
+// Importing React to create a functional component
 import React from 'react';
 
+// The Footer component represents the website's footer section
 const Footer = () => {
     return (
+        // Footer section with contact, follow, and copyright information
         <footer className="footer">
             <div className="container">
                 <div className="row">
