@@ -12,9 +12,13 @@ const Basket = () => {
   const { basket, setBasket } = useContext(BasketContext);
   const [shipping, setShipping] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
+  const [checkedOut, setCheckedOut] = useState(false);
   const { user } = useContext(UserContext);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setCheckedOut(false);
+  };
   const handleShow = () => setShow(true);
 
   const handleCheckout = () => {
@@ -37,6 +41,7 @@ const Basket = () => {
       .then((response) => {
         user.orders.push(response);
         setBasket([]);
+        setCheckedOut(true);
       });
   };
 
@@ -62,6 +67,7 @@ const Basket = () => {
         </Offcanvas.Header>
         <hr />
         <Offcanvas.Body>
+          <p hidden={checkedOut != true}>Confirmation: order placed</p>
           <BasketItemList />
           <Form>
             <Form.Label>Delivery: </Form.Label>

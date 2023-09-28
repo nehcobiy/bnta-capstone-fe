@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { UserContext } from "../contexts/UserContext";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -12,7 +10,6 @@ import Basket from "./Basket";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const { user, setUser } = useContext(UserContext);
   const [showSignIn, setShowSignIn] = useState(false);
 
   const handleSignInClick = () => {
