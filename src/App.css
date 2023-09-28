@@ -111,3 +111,15 @@ body {
       margin: 0 5px;
   }
 }
+
+.product-image {
+  object-fit: cover; /* Ensure the aspect ratio is maintained while covering the container */ 
+  box-sizing: border-box;
+  width: 100px; /* Set the desired width */
+  max-height: 400px; /* Set the desired height */
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

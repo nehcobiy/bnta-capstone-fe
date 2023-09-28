@@ -49,9 +49,10 @@ const Product = ({ product }) => {
 
   return (
     <>
+
       <Col className="d-flex py-3">
         <Card style={{ width: "22rem" }}>
-          <Card.Img variant="top" src={product.image} />
+          <Card.Img className="product-image" variant="top" src={product.image} />
 
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>
