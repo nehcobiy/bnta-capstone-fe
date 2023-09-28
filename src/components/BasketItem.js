@@ -73,13 +73,9 @@ const BasketItem = ({ product }) => {
             onClick={handleMinus}
             disabled={product.quantity === 1}
           >
-          <Button variant="light" size="sm" onClick={handleMinus}>
             <AiOutlineMinus />
           </Button>
-          {product.quantity}
-          <Button variant="light" size="sm" onClick={handlePlus}>
-            <AiOutlinePlus />
-          </Button>
+
           {/* Button to remove the item from the basket */}
           <Button variant="secondary" onClick={handleBin}>
             <RiDeleteBin6Line />
