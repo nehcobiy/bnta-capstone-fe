@@ -7,11 +7,9 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 const BasketItem = ({ product }) => {
-  // const [quantity, setQuantity] = useState(product.quantity);
   const { basket, setBasket } = useContext(BasketContext);
 
   const handlePlus = () => {
-    // setQuantity(quantity + 1);
     console.log(basket);
     console.log(product);
     const updatedBasket = basket.map((basketItem) => {
