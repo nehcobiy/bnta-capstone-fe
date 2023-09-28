@@ -1,9 +1,10 @@
 import { useState, useContext, useEffect } from "react";
+import { BasketContext } from "../contexts/BasketContext";
+import { UserContext } from "../contexts/UserContext";
 import { Button } from "react-bootstrap";
 import { BsCart } from "react-icons/bs";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Form from "react-bootstrap/Form";
-import { BasketContext } from "../contexts/BasketContext";
 import BasketItemList from "./BasketItemList";
 
 const Basket = () => {
@@ -11,9 +12,33 @@ const Basket = () => {
   const { basket, setBasket } = useContext(BasketContext);
   const [shipping, setShipping] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
+  const { user } = useContext(UserContext);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleCheckout = () => {
+    const products = {};
+
+    basket.forEach((basketItem) => {
+      products[basketItem.item.id] = basketItem.quantity;
+    });
+
+    fetch("http://localhost:8080/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ customerId: user.id, products: products }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        user.orders.push(response);
+        setBasket([]);
+      });
+  };
 
   useEffect(() => {
     let total = 0;
@@ -52,7 +77,7 @@ const Basket = () => {
             <Form.Label>Address: </Form.Label>
             <Form.Select defaultValue="Choose...">
               <option>Choose...</option>
-              {/* <option>user address</option> */}
+              <option>{user != null ? user.address : null}</option>
             </Form.Select>
           </Form>
           <hr />
@@ -60,6 +85,9 @@ const Basket = () => {
           <p>Shipping: £{(shipping / 100).toFixed(2)}</p>
           <p>Subtotal: £{(cartTotal / 100 + shipping / 100).toFixed(2)} </p>
         </Offcanvas.Body>
+        <Button variant="light" size="lg" onClick={handleCheckout}>
+          Checkout
+        </Button>
       </Offcanvas>
     </>
   );
