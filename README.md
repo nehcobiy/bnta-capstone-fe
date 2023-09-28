@@ -47,7 +47,7 @@ The project follows a modular structure with the following key components:
 - `React Bootstrap`: UI framework for responsive design.
 - `Context API`: For state management (User and Basket contexts).
 - `Fetch API`: For making HTTP requests to the backend.
-- `Node.js`: Backend server for handling user authentication and orders (not included in this repository).
+- `Spring Boot`: Backend server for handling user authentication and orders (not included in this repository).
 - `Bootstrap CSS`: Styling and layout components.
 
   ## Collaborators
