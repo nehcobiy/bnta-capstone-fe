@@ -42,15 +42,23 @@
   margin-bottom: 40px;
 }
 
-
+.product-image {
+  object-fit: cover; /* Ensure the aspect ratio is maintained while covering the container */ 
+  box-sizing: border-box;
+  width: 100px; /* Set the desired width */
+  max-height: 400px; /* Set the desired height */
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 body {
   background-color: #dbd4d3 !important;
 }
 
-
 /* Footer Styles */
-
 .footer {
   background-color: #757789;
   color: #fff;
@@ -89,7 +97,6 @@ body {
 }
 
 /* Copyright Text Styles */
-
 .footer h3:last-child {
   font-size: 18px;
   margin-top: 20px;
@@ -97,7 +104,6 @@ body {
 }
 
 /* Responsive Styles */
-
 @media (max-width: 768px) {
   .footer {
       text-align: center;
@@ -111,3 +117,4 @@ body {
       margin: 0 5px;
   }
 }
+
