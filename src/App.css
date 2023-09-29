@@ -1,52 +1,52 @@
 .hero-image {
-  max-height: 100%; /* Ensure the image doesn't exceed the container */
-  max-width: 100%; /* Ensure the image doesn't exceed the container */
+  max-height: 100%;
+  max-width: 100%;
   position: relative;
   object-fit: cover;
 }
 
 .carousel-image-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Set the height to fill the viewport */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .carousel-image1 {
-  margin-left: 100px; /* Adjust the value as needed */
+  margin-left: 100px;
 }
 
 .carousel-image2 {
-  margin: 30px; /* Adjust the value as needed */
+  margin: 30px;
 }
 
 .carousel-image3 {
-  margin: 30px; /* Adjust the value as needed */
+  margin: 30px;
 }
 
 .carousel-image4 {
-  margin: 30px; /* Adjust the value as needed */
+  margin: 30px;
 }
 
 .carousel-image5 {
-  margin: 60px; /* Adjust the value as needed */
+  margin: 60px;
 }
 
 .popular-heading {
   color: black;
   font-size: 50px;
   text-align: center;
-  position: relative; /* Use position */
-  top: 50px; /* Adjust the value to move the heading down */
+  position: relative;
+  top: 50px;
   margin-left: 50px;
   margin-bottom: 40px;
 }
 
 .product-image {
-  object-fit: cover; /* Ensure the aspect ratio is maintained while covering the container */ 
+  object-fit: cover;
   box-sizing: border-box;
-  width: 100px; /* Set the desired width */
-  max-height: 400px; /* Set the desired height */
+  width: 100px;
+  max-height: 400px;
   margin: auto;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -58,7 +58,6 @@ body {
   background-color: #dbd4d3 !important;
 }
 
-/* Footer Styles */
 .footer {
   background-color: #757789;
   color: #fff;
@@ -93,28 +92,25 @@ body {
 }
 
 .social-icons a:hover {
-  color: #ff5733; /* Change the color on hover */
+  color: #ff5733;
 }
 
-/* Copyright Text Styles */
 .footer h3:last-child {
   font-size: 18px;
   margin-top: 20px;
   font-weight: normal;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .footer {
-      text-align: center;
+    text-align: center;
   }
 
   .social-icons {
-      margin-top: 20px;
+    margin-top: 20px;
   }
 
   .social-icons li {
-      margin: 0 5px;
+    margin: 0 5px;
   }
 }
-

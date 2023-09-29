@@ -1,4 +1,3 @@
-// Importing necessary modules and components from external libraries and contexts
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -10,27 +9,20 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 import { BasketContext } from "../contexts/BasketContext";
 
-// The Product component represents an individual product card
 const Product = ({ product }) => {
-  // State variable to manage the quantity of the product
   const [quantity, setQuantity] = useState(1);
-  
-  // Accessing the shopping basket and its setter function from context
   const { basket, setBasket } = useContext(BasketContext);
 
-  // Function to increase the quantity
   const handlePlus = () => {
     setQuantity(quantity + 1);
   };
 
-  // Function to decrease the quantity (minimum quantity is 1)
   const handleMinus = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
 
-  // Function to add the product to the shopping basket
   const addToBasket = () => {
     let itemInBasket = false;
 
@@ -62,7 +54,6 @@ const Product = ({ product }) => {
     <>
       <Col className="d-flex py-3">
         <Card style={{ width: "22rem" }}>
-          {/* Product image */}
           <Card.Img
             className="product-image"
             variant="top"
@@ -100,7 +91,6 @@ const Product = ({ product }) => {
                 <AiOutlinePlus />
               </Button>
 
-              {/* Button to add the product to the basket */}
               <Button variant="secondary" onClick={addToBasket}>
                 <BsCart />
               </Button>
@@ -112,5 +102,4 @@ const Product = ({ product }) => {
   );
 };
 
-// Exporting the Product component
 export default Product;
